@@ -22,6 +22,7 @@
 /* certain platforms use macros for these, making the prototypes broken */
 #ifndef LTC_NO_PROTOTYPES
 
+#if !defined(_WIN32)
 /* you can change how memory allocation works ... */
 LTC_EXPORT void * LTC_CALL XMALLOC(size_t n);
 LTC_EXPORT void * LTC_CALL XREALLOC(void *p, size_t n);
@@ -33,6 +34,7 @@ LTC_EXPORT void LTC_CALL XQSORT(void *base, size_t nmemb, size_t size, int(*comp
 
 /* change the clock function too */
 LTC_EXPORT clock_t LTC_CALL XCLOCK(void);
+#endif /* !_WIN32 */
 
 /* various other functions */
 LTC_EXPORT void * LTC_CALL XMEMCPY(void *dest, const void *src, size_t n);
